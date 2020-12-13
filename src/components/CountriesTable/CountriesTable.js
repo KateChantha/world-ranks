@@ -37,18 +37,18 @@ const SortArrow = ({ direction }) => {
 }
 
 const CountriesTable = ({countries}) => {
-  const [direction, setDirection] = useState();
-  const [value, setValue] = useState();
+  const [direction, setDirection] = useState(null);
+  const [value, setValue] = useState(null);
 
   const orderedCountries = orderBy(countries, value, direction);
 
   const switchDirection = () => {
     if (!direction) {
-      setDirection("desc")
+      setDirection("desc") // null -> desc
     } else if (direction === "desc") {
-      setDirection("asc")
+      setDirection("asc") // desc -> asc
     } else {
-      setDirection(null)
+      setDirection(null) // asc -> null
     }
   }
 
